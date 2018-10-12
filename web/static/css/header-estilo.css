@@ -1,0 +1,355 @@
+.header{
+    display: grid;
+    grid-area: h;
+    justify-items: left;
+    align-items: center;
+    background: #48001E;
+}
+
+.logo-header,
+.btn-menu{
+    display: none;
+}
+.header h1 a,
+.drop-header h3,
+.login,
+.fa-user{
+    color: #fff;
+}
+/*===Hamburger===*/
+
+.hamburger {
+    display: inline-block;
+    
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+
+.change .bar2 {
+    opacity: 0;
+}
+
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.change .bar1,
+.change .bar3{
+    background: #DC93AF;
+}
+
+/*===MENU===*/
+
+.nav{
+    grid-column: 1 / 2;
+    grid-row : 1 / 1;
+    background: #48001E;
+    padding: 5px;
+    
+}
+
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #933157;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(249, 249, 249, 0.9);
+    width: 100%;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 110;
+  }
+  
+  /* Mega Menu header, if needed */
+  .dropdown-content .dropdown-header {
+    background: #933157;
+    padding: 8px;
+    color: #fff;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .row{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+
+  .column { 
+    padding: 10px;
+    background-color: rgba(249, 249, 249, .9);
+
+  }
+  .column h3{
+      color: #48001E;
+  }
+
+  .column a {
+    float: none;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .column a:hover {
+    background-color: #ddd;
+  }
+  
+
+/* TITULO*/
+
+.header h1{
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+    font-size: 1.8em;
+    font-weight: 900;
+    text-align: left;
+    text-transform: uppercase;
+}
+.header h1 a,
+.login{
+    text-decoration: none;
+}
+.header h1 a:hover{
+        color: #DC93AF;
+    }
+   
+     
+/*LOGIN*/
+
+.contenedor-login{
+    display: grid;
+    grid-template-columns: 15px 1fr;
+    grid-column: 4 / 5;
+    grid-row: 1 / 1;
+    grid-gap: 3px;
+}
+.fa-user,
+.login{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.login:hover{
+        cursor: pointer;
+        color: #DC93AF;
+    }
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+    .header{
+        display: grid;
+        grid-template-columns: 80px 200px 1fr 1fr;
+        justify-items: left;
+      
+    }
+    
+  
+}
+
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+
+.header{
+   
+    grid-template-columns: 80px repeat(7, 1fr);
+    justify-items: left;
+  
+}
+    .logo-header,
+    .btn-menu{
+        display: block;
+    }
+    .header figure{
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+        justify-self: center;
+        
+    }
+    .logo-header{
+        width: 40px;
+        
+    }
+ 
+    .header h1 a,
+    .drop-header h3,
+    .login,
+    .fa-user{
+        color: #fff;
+    }
+    /*===Hamburger===*/
+    
+    .hamburger {
+        display: none;
+        
+    }
+    
+    /*===MENU===*/
+    
+    .nav{
+        grid-column: 4 / 5;
+        
+    }
+    .btn-menu{
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2em;
+        padding: 12px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .btn-menu:hover{
+        background-color: #933157;
+        
+      }
+  
+      .dropdown-content .dropdown-header {
+        background: #933157;
+        padding: 8px;
+        color: #fff;
+      }
+      
+      .row{
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+      }
+    
+    
+    /* TITULO*/
+    
+    .header h1{
+        grid-column: 2 / 2;
+        font-size: 2em;
+      
+    }
+    
+    /*LOGIN*/
+    
+    .contenedor-login{
+
+        grid-column: 7 / 8;
+        
+    }
+    .fa-user,
+    .login{
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+    
+   
+  
+}
+@media (min-width: 1281px) {
+    
+    .header{
+   
+        grid-template-columns: 80px repeat(7, 1fr);
+        justify-items: left;
+      
+    }
+        .logo-header,
+        .btn-menu{
+            display: block;
+        }
+        .header figure{
+            grid-column: 1 / 1;
+            grid-row: 1 / 1;
+            justify-self: center;
+            
+        }
+        .logo-header{
+            width: 40px;
+            
+        }
+     
+        .header h1 a,
+        .drop-header h3,
+        .login,
+        .fa-user{
+            color: #fff;
+        }
+        /*===Hamburger===*/
+        
+        .hamburger {
+            display: none;
+            
+        }
+        
+        /*===MENU===*/
+        
+        .nav{
+            grid-column: 3 / 4;
+            
+        }
+        .btn-menu{
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 12px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+          }
+          .btn-menu:hover{
+            background-color: #933157;
+            
+          }
+      
+          .dropdown-content .dropdown-header {
+            background: #933157;
+            padding: 8px;
+            color: #fff;
+          }
+          
+          .row{
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+          }
+        
+        
+        /* TITULO*/
+        
+        .header h1{
+            grid-column: 2 / 2;
+            font-size: 2em;
+          
+        }
+   
+        /*LOGIN*/
+        
+        .contenedor-login{
+    
+            grid-column: 7 / 8;
+            grid-gap: 15px;
+            
+        }
+        .fa-user{
+            font-size: 1.5em;
+        }
+        .login{
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+    
+
+}
