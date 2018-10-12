@@ -8,7 +8,7 @@ package elpoeta.felurian.web.server;
 import elpoeta.felurian.dao.UsuarioDao;
 import elpoeta.felurian.modelo.Usuario;
 import elpoeta.felurian.util.GsonUtil;
-import elpoeta.felurian.util.ValidarEmail;
+import elpoeta.felurian.util.Validar;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -78,7 +78,7 @@ public class RegistroServer extends HttpServlet {
   private boolean validarUsuario(Usuario u){
     if(u.getNombre() != "" && u.getNombre() !=null 
        && u.getApellido() != "" && u.getApellido() !=null
-       && ValidarEmail.validate(u.getEmail()) 
+       && Validar.isValidEmail(u.getEmail()) 
        && u.getPassword() != "" && u.getPassword() != null 
        && u.getConfirmPassword() != "" && u.getConfirmPassword() !=null){
         return true;

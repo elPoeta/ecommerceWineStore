@@ -1,7 +1,7 @@
 
 package elpoeta.felurian.modelo;
 
-import elpoeta.felurian.util.ValidarEmail;
+import elpoeta.felurian.util.Validar;
 
 /**
  *
@@ -54,7 +54,7 @@ public class Usuario {
     }
 
     public void setEmail(String email) {
-        if(ValidarEmail.validate(email)){
+        if(Validar.isValidEmail(email)){
             this.email = email;
         }else{
             throw new IllegalArgumentException("Verificar email");

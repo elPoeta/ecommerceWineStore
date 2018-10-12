@@ -1,6 +1,8 @@
 
 package elpoeta.felurian.modelo;
 
+import elpoeta.felurian.util.Validar;
+
 /**
  *
  * @author elpoeta
@@ -16,6 +18,10 @@ public class SubCategoria {
     }
 
     public void setId(Integer id) {
+          if(id == null){
+            throw new IllegalArgumentException("id Nullo no es entero");
+        } 
+         
         this.id = id;
     }
 
@@ -24,6 +30,10 @@ public class SubCategoria {
     }
 
     public void setNombre(String nombre) {
+           if(Validar.isNullOrWhitespace(nombre)){
+            
+            throw new IllegalArgumentException("Nombre vacio o nulo");
+        }
         this.nombre = nombre;
     }
 
@@ -40,6 +50,10 @@ public class SubCategoria {
     }
 
     public void setIdCategoria(Integer idCategoria) {
+           if(idCategoria == null){
+            throw new IllegalArgumentException("id Nullo no es entero");
+        } 
+         
         this.idCategoria = idCategoria;
     }
 
