@@ -74,16 +74,16 @@ public class RegistroServer extends HttpServlet {
             out.close();
         }
     }
-    
+
   private boolean validarUsuario(Usuario u){
-    if(u.getNombre() != "" && u.getNombre() !=null 
-       && u.getApellido() != "" && u.getApellido() !=null
+    if(!Validar.isNullOrWhitespace(u.getNombre())
+       &&!Validar.isNullOrWhitespace(u.getApellido())
        && Validar.isValidEmail(u.getEmail()) 
-       && u.getPassword() != "" && u.getPassword() != null 
-       && u.getConfirmPassword() != "" && u.getConfirmPassword() !=null){
+       && !Validar.isNullOrWhitespace(u.getPassword())  
+       && !Validar.isNullOrWhitespace(u.getConfirmPassword())){
         return true;
     }
       
       return false;
-}
+    }
 }
