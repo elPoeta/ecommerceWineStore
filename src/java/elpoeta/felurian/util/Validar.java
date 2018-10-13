@@ -13,8 +13,9 @@ public class Validar {
     Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
 public static boolean isValidEmail(String emailStr) {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
-        return matcher.find();
+        //Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+        //return matcher.find();
+        return emailStr == null ||  VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr).find();
 }
    
  public static boolean isNullOrWhitespace(CharSequence cadena) {

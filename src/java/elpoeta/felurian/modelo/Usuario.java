@@ -22,6 +22,9 @@ public class Usuario {
     }
 
     public void setId(Integer id) {
+            if(id == null){
+            throw new IllegalArgumentException("id Nullo no es entero");
+        } 
         this.id = id;
     }
 
@@ -30,6 +33,10 @@ public class Usuario {
     }
 
     public void setNombre(String nombre) {
+          if(Validar.isNullOrWhitespace(nombre)){
+            
+            throw new IllegalArgumentException("Nombre vacio o nulo");
+        }
         this.nombre = nombre;
     }
 
@@ -38,6 +45,10 @@ public class Usuario {
     }
 
     public void setApellido(String apellido) {
+          if(Validar.isNullOrWhitespace(apellido)){
+            
+            throw new IllegalArgumentException("Apellido vacio o nulo");
+        }
         this.apellido = apellido;
     }
 
@@ -54,12 +65,10 @@ public class Usuario {
     }
 
     public void setEmail(String email) {
-        if(Validar.isValidEmail(email)){
-            this.email = email;
-        }else{
-            throw new IllegalArgumentException("Verificar email");
+        if(!Validar.isValidEmail(email) || email == null){
+            throw new IllegalArgumentException("Verificar email");       
         }
-        
+        this.email = email;
     }
 
     public String getPassword() {
@@ -67,6 +76,10 @@ public class Usuario {
     }
 
     public void setPassword(String password) {
+          if(Validar.isNullOrWhitespace(password)){
+            
+            throw new IllegalArgumentException("Password vacio o nulo");
+        }
         this.password = password;
     }
 
