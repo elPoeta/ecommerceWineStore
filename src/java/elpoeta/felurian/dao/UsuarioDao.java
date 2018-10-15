@@ -120,6 +120,7 @@ public class UsuarioDao {
                       user = new Usuario();
 		      user.setId(rs.getInt("id"));
 		      user.setNombre(rs.getString("nombre"));
+                      user.setApellido(rs.getString("apellido"));
                       user.setEmail(rs.getString("email"));
                       user.setPassword(rs.getString("password"));
                       user.setActivo(rs.getBoolean("is_activo"));

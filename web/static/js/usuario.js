@@ -32,6 +32,8 @@ class Usuario{
         linkCuenta.setAttribute('href','#');
         linkCuenta.appendChild(t);
         linkCuenta.className = "menu-usuario";
+        linkCuenta.setAttribute('id', `miCuenta`);
+        linkCuenta.setAttribute("onclick", "MiCuenta.verMenu();");
         liCuenta.appendChild(linkCuenta);
         t = document.createTextNode("Cerrar sesion"); 
     

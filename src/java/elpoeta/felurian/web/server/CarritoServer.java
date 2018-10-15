@@ -9,6 +9,7 @@ import elpoeta.felurian.dao.ProductoDao;
 import elpoeta.felurian.modelo.Carrito;
 import elpoeta.felurian.modelo.CarritoItem;
 import elpoeta.felurian.modelo.Producto;
+import elpoeta.felurian.modelo.Usuario;
 import elpoeta.felurian.util.GsonUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,8 +42,7 @@ public class CarritoServer extends HttpServlet {
         }
           response.getWriter().print(GsonUtil.CONVERTIR.toJson(carrito));
     }
-      
-    
+     
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -61,6 +61,9 @@ public class CarritoServer extends HttpServlet {
         carrito.agregar( productoComprado );
         carrito.getTotal();
         carrito.getCantidadItems();
+        
+        Usuario usuario = (Usuario) request.getSession().getAttribute("user");
+        carrito.setUsuario(usuario);
         
         response.getWriter().print(GsonUtil.CONVERTIR.toJson(carrito));
         
@@ -84,7 +87,7 @@ public class CarritoServer extends HttpServlet {
         carrito.quitar( id );
         carrito.getCantidadItems();
         carrito.getTotal();
-        
+      
         resp.getWriter().print(GsonUtil.CONVERTIR.toJson(carrito));   
 
     }

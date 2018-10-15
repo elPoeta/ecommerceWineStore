@@ -28,7 +28,9 @@ public class CarritoItem {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
+public void setSubtotal(BigDecimal subtotal){
+    this.subtotal = subtotal;
+}
     public BigDecimal getSubtotal() {
         this.subtotal = calcularSubTotal();
         return  this.subtotal;

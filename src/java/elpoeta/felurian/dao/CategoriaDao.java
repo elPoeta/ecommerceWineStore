@@ -22,7 +22,7 @@ public class CategoriaDao {
     private final static String SQL_CATEGORIAS_SELECT = "SELECT * FROM categoria;";
     private final static String SQL_CATEGORIA_SELECT = "SELECT * FROM categoria WHERE id = ?;";
     private final static String SQL_SUBCATEGORIA_FINDBY_IDCATEGORIA = "SELECT * FROM sub_categoria WHERE categoria_id = ?;";
-    
+
     private CategoriaDao() throws ClassNotFoundException,
     IOException, SQLException {
 }
@@ -104,8 +104,7 @@ public class CategoriaDao {
 		return cat;
 
     }
-
-  
+   
     public List<Categoria> buscarTodos() throws ClassNotFoundException, IOException, SQLException {
         ArrayList<Categoria> lista = new ArrayList();
 		Connection conexion = null;
@@ -172,7 +171,6 @@ public class CategoriaDao {
 		}
 		return lista;
     }
-
 
     
 }

@@ -17,7 +17,9 @@ import com.paypal.api.payments.RedirectUrls;
 import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
+import elpoeta.felurian.dao.FinalizarCompraDao;
 import elpoeta.felurian.modelo.Carrito;
+import elpoeta.felurian.modelo.Usuario;
 import static elpoeta.felurian.util.CredencialApi.CLIENTE_ID;
 import static elpoeta.felurian.util.CredencialApi.CLIENTE_SECRET;
 import static elpoeta.felurian.util.CredencialApi.MODO;
@@ -45,6 +47,12 @@ public class PayPalServer extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+           carrito = (Carrito) req.getSession().getAttribute("carro");  
+           if(carrito.getUsuario() == null){
+                    System.out.println("if fc..>>>");
+                    Usuario usuario = (Usuario) req.getSession().getAttribute("user");
+                    carrito.setUsuario(usuario);
+                }
         Payment pay = crearPago(req, resp);
         System.out.println(pay);
         resp.getWriter().print(GsonUtil.CONVERTIR.toJson(pay));
@@ -52,7 +60,7 @@ public class PayPalServer extends HttpServlet {
     }
    
     private Payment crearPago(HttpServletRequest req, HttpServletResponse resp) {
-        carrito = (Carrito) req.getSession().getAttribute("carro");  
+     
         Payment createdPayment = null;
         try {
              APIContext apiContext = new APIContext(CLIENTE_ID, CLIENTE_SECRET, MODO);
@@ -68,6 +76,10 @@ public class PayPalServer extends HttpServlet {
 
 
                 createdPayment = payment.execute(apiContext, paymentExecution);
+             
+              
+                FinalizarCompraDao.getInstance().insertar(carrito);
+                      
                 System.out.println("Ejecutando Payment - Request :: \n " + Payment.getLastRequest());
                 System.out.println("Ejecutando Payment - Response :: \n " + Payment.getLastResponse());
                 
