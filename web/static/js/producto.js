@@ -11,6 +11,7 @@ class Producto{
             loading(true);
         let productos = await Producto.consultar(param);
             Producto.viewProductos(productos);
+            Producto.ocultarMenu();
        } catch(err){
            console.log(`Error: ${err}`);
        }
@@ -22,7 +23,9 @@ class Producto{
         try{
             loading(true);
         let productos = await Producto.consultar(param);
-            Producto.viewProductos(productos);
+            Producto.viewProductos(productos);  
+            Producto.ocultarMenu();
+
        } catch(err){
            console.log(`Error: ${err}`);
        }
@@ -48,5 +51,11 @@ class Producto{
             
     }
     
-    
+   static ocultarMenu(){
+        
+        document.querySelector('.dropdown-content').style.display='none';
+        document.querySelector('.hamburger').classList.toggle("change");
+        document.querySelector('.btn-menu').classList.toggle("change");
+    }
+     
 }
