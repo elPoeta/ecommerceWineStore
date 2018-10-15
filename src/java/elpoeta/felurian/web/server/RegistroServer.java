@@ -76,11 +76,11 @@ public class RegistroServer extends HttpServlet {
     }
 
   private boolean validarUsuario(Usuario u){
-    if(!Validar.isNullOrWhitespace(u.getNombre())
-       &&!Validar.isNullOrWhitespace(u.getApellido())
+    if(!Validar.isNullOEspaciosEnBlanco(u.getNombre())
+       &&!Validar.isNullOEspaciosEnBlanco(u.getApellido())
        && Validar.isValidEmail(u.getEmail()) 
-       && !Validar.isNullOrWhitespace(u.getPassword())  
-       && !Validar.isNullOrWhitespace(u.getConfirmPassword())){
+       && !Validar.isNullOEspaciosEnBlanco(u.getPassword())  
+       && !Validar.isNullOEspaciosEnBlanco(u.getConfirmPassword())){
         return true;
     }
       

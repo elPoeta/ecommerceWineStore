@@ -18,7 +18,7 @@ public static boolean isValidEmail(String emailStr) {
         return emailStr == null ||  VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr).find();
 }
    
- public static boolean isNullOrWhitespace(CharSequence cadena) {
+ public static boolean isNullOEspaciosEnBlanco(CharSequence cadena) {
     return cadena == null || cadena.codePoints().allMatch(c -> Character.isWhitespace(c));
    /*  if (cadena == null) {
         return true;

@@ -5,19 +5,21 @@ class Checkout{
       try{
         const data = await Http.get(URL_CARRITO);
             
-                let template='<section class="seccion-compras"> <ul>';
-                 for (let clave in  data.items){
-                      if (data.items.hasOwnProperty(clave)) {
-                            template += 
-                                     `<li class="lista-compras"><img src="${data.items[clave].producto.imagen}"/><h2>${data.items[clave].producto.nombre}</h2><p>$ ${data.items[clave].producto.precio} x ${data.items[clave].cantidad} &nbsp; <span class="subtotal">subtotal $${data.items[clave].subtotal}</span></p></li>`;
-                     }
-                     template += `<hr>`;
-                 }
-                template +=   `</ul>
-                               <div class="contenedor-total-btn">
-                                <h2>Total Compra $ ${data.total} / U$$ ${Number(data.total/40)}</h2>  
-                                </div>
-                              </section>`;
+            let template= 
+                    `<section class="seccion-compras">
+                      <ul>
+                     ${Object.keys(data.items).map( clave => 
+                         `<li class="lista-compras"><img src="${data.items[clave].producto.imagen}"/>
+                            <h2>${data.items[clave].producto.nombre}</h2>
+                            <p>$ ${data.items[clave].producto.precio} x ${data.items[clave].cantidad} &nbsp; <span class="subtotal">subtotal $${data.items[clave].subtotal}</span></p>
+                        </li><hr/>`
+                    ).join('')}
+                        </ul>
+                       <div class="contenedor-total-btn">
+                             <h2>Total Compra $ ${data.total} / U$$ ${Number(data.total/40)}</h2>  
+                         </div>
+                     </section>`;
+            
             document.querySelector('#panel-central').innerHTML = template;         
             document.querySelector('#paypal-button').style.display="inline-block";
         }             

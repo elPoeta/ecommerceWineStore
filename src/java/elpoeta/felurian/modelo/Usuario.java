@@ -33,7 +33,7 @@ public class Usuario {
     }
 
     public void setNombre(String nombre) {
-          if(Validar.isNullOrWhitespace(nombre)){
+          if(Validar.isNullOEspaciosEnBlanco(nombre)){
             
             throw new IllegalArgumentException("Nombre vacio o nulo");
         }
@@ -45,7 +45,7 @@ public class Usuario {
     }
 
     public void setApellido(String apellido) {
-          if(Validar.isNullOrWhitespace(apellido)){
+          if(Validar.isNullOEspaciosEnBlanco(apellido)){
             
             throw new IllegalArgumentException("Apellido vacio o nulo");
         }
@@ -76,7 +76,7 @@ public class Usuario {
     }
 
     public void setPassword(String password) {
-          if(Validar.isNullOrWhitespace(password)){
+          if(Validar.isNullOEspaciosEnBlanco(password)){
             
             throw new IllegalArgumentException("Password vacio o nulo");
         }

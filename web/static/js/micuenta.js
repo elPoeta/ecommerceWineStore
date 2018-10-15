@@ -22,19 +22,20 @@ class MiCuenta{
                                         <span class="item-quantity">${mc.items[key].producto.nombre}</span>
                                          <span class="item-quantity">Cantidad: ${mc.items[key].cantidad}</span>
                               </div>
+                                 <i id="add-${mc.items[key].producto.id}" class="fas fa-cart-plus" onclick="Carrito.agregarProducto(${mc.items[key].producto.id})"></i>
                                               </li>       
                                             `).join('')}
                                        </ul>         
                             </div>`).join('')}
                     </div>
                  </div>`;  
-   
+        
         document.querySelector('#panel-micuenta').innerHTML = template;
     }
     
     static verMenu(){
         document.querySelector('.panel-usuario').classList.toggle('hide-panel-usuario');
-        
+        document.querySelector('#paypal-button').style.display="none";
         let template =
                 `<div id="tab-micuenta" class="tabcontent">
                     <h2>Mi Cuenta</h2>
@@ -43,23 +44,23 @@ class MiCuenta{
 
                 <div id="tab-miscompras" class="tabcontent">
                      <h2>Mis Compras</h2>
-                     <p>Ver detalles de mis compras.</p> 
+                     <p>Histarial de compras.</p> 
                 </div>
 
-                <div id="Tokyo" class="tabcontent">
-                    <h2>Tokyo</h2>
-                    <p>Tokyo is the capital of Japan.</p>
+                <div id="tab-sugerencias" class="tabcontent">
+                    <h2>Sugerencias</h2>
+                    <p>Envianos tus sugerencias.</p>
                 </div>
 
-                <div id="Oslo" class="tabcontent">
-                    <h2>Oslo</h2>
-                    <p>Oslo is the capital of Norway.</p>
+                <div id="tab-novedades" class="tabcontent">
+                    <h2>Novedades</h2>
+                    <p>Novedades, promos, informacion.</p>
                     </div>
 
             <button class="tablink" onclick="MiCuenta.abrirPanelCuenta('tab-micuenta', this, '#933157')" id="defaultOpen">Mi Cuenta</button>
             <button class="tablink" onclick="MiCuenta.abrirPanelCuenta('tab-miscompras', this, '#BA5D7E')">Mis Compras</button>
-            <button class="tablink" onclick="MiCuenta.abrirPanelCuenta('Tokyo', this, '#DC93AF')">Tokyo</button>
-            <button class="tablink" onclick="MiCuenta.abrirPanelCuenta('Oslo', this, '#AB5586')">Oslo</button>
+            <button class="tablink" onclick="MiCuenta.abrirPanelCuenta('tab-sugerencias', this, '#DC93AF')">Sugerencias</button>
+            <button class="tablink" onclick="MiCuenta.abrirPanelCuenta('tab-novedades', this, '#AB5586')">Novedades</button>
 
             <div id="panel-micuenta"></div>`;
       
@@ -68,20 +69,19 @@ class MiCuenta{
     }
     
    static abrirPanelCuenta(btnTabid, elmnt, color) {
-    // Hide all elements with class="tabcontent" by default */
+  
     let i, tabcontent, tablinks;
     tabcontent = document.querySelectorAll(".tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
 
-    // Remove the background color of all tablinks/buttons
     tablinks = document.querySelectorAll(".tablink");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].style.backgroundColor = "";
     }
 
-    // Show the specific tab content
+   
     document.querySelector('#'+btnTabid).style.display = "block";
             if(btnTabid == 'tab-micuenta'){
                 document.querySelector('#panel-micuenta').innerHTML = "Mi Cuenta !!!";
@@ -89,13 +89,13 @@ class MiCuenta{
              if(btnTabid == 'tab-miscompras'){
                 MiCuenta.consultarCompras();
             }
-             if(btnTabid == 'Tokyo'){
-                document.querySelector('#panel-micuenta').innerHTML = "Tokyo !!!";
+             if(btnTabid == 'tab-sugerencias'){
+                document.querySelector('#panel-micuenta').innerHTML = "Sugerencias !!!";
             }
-             if(btnTabid == 'Oslo'){
-                document.querySelector('#panel-micuenta').innerHTML = "Oslo !!!";
+             if(btnTabid == 'tab-novedades'){
+                document.querySelector('#panel-micuenta').innerHTML = "Novedades !!!";
             }
-    // Add the specific color to the button used to open the tab content
+
     elmnt.style.backgroundColor = color;
 }
 }

@@ -30,7 +30,7 @@ public class SubCategoria {
     }
 
     public void setNombre(String nombre) {
-           if(Validar.isNullOrWhitespace(nombre)){
+           if(Validar.isNullOEspaciosEnBlanco(nombre)){
             
             throw new IllegalArgumentException("Nombre vacio o nulo");
         }
