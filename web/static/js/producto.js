@@ -31,7 +31,23 @@ class Producto{
        }
         loading(false);
     }
-    
+     
+    static async buscarPorNombre(){
+        const URL_BUSCAR_PRODUCTO_SERVER = 'api/BuscarProductoPorNombreServer?&q=';
+        const texto = document.querySelector(`#search`);
+        const txt = texto.value.toLowerCase();    
+        
+        const param = {"letras":"" + txt};
+       try{
+            loading(true);
+          const productos = await Http.get(URL_BUSCAR_PRODUCTO_SERVER +JSON.stringify(param));
+            Producto.viewProductos(productos);
+           
+       } catch(err){
+           console.log(`Error: ${err}`);
+       }
+     loading(false);   
+    }
      static viewProductos(productos){
      
         let template =  `<section class="contenedor-productos text-center">
