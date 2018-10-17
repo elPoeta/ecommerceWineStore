@@ -33,14 +33,14 @@ public class UsuarioTest {
     }
 
     @Test
-       public void SetIdUsuario_ConIdValido() {
+       public void setIdUsuario_ConIdValido() {
            usuario.setId(1);
            assertThat(usuario.getId()).isNotNull().isEqualTo(1);
          
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetIdUsuario_ConIdNoValido() {
+       public void setIdUsuario_ConIdNoValido() {
           
            usuario.setId(null);
            assertThat(usuario.getId()).isNull();
@@ -49,13 +49,13 @@ public class UsuarioTest {
        
        
        @Test
-       public void SetNombreUsuario_ConNombreValido() {
+       public void setNombreUsuario_ConNombreValido() {
            usuario.setNombre("Leonardo");
            assertThat(usuario.getNombre()).isNotBlank().isNotEmpty().isNotNull();
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetNombreUsuario_ConNombreVacio() {
+       public void setNombreUsuario_ConNombreVacio() {
            usuario.setNombre("");
            assertThat(usuario.getNombre()).isBlank().isEmpty();
            fail("Debería haberse lanzado una excepción.");
@@ -63,26 +63,26 @@ public class UsuarioTest {
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetNombreUsuario_ConNombreSoloEspaciosBlancos() {   
+       public void setNombreUsuario_ConNombreSoloEspaciosBlancos() {   
            usuario.setNombre("   ");
            assertThat(usuario.getNombre()).containsOnlyWhitespaces();
            fail("Debería haberse lanzado una excepción.");
        }
         @Test(expected = IllegalArgumentException.class)
-       public void SetNombreUsuario_ConNombreNull() {   
+       public void setNombreUsuario_ConNombreNull() {   
            usuario.setNombre(null);
            assertThat(usuario.getNombre()).isNull();
            fail("Debería haberse lanzado una excepción.");
        }
        
        @Test
-       public void SetApellidoUsuario_ConApellidoValido() {
+       public void setApellidoUsuario_ConApellidoValido() {
            usuario.setApellido("Tosetto");
            assertThat(usuario.getApellido()).isNotBlank().isNotEmpty().isNotNull();
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetApellidoUsuario_ConApellidoVacio() {
+       public void setApellidoUsuario_ConApellidoVacio() {
            usuario.setApellido("");
            assertThat(usuario.getApellido()).isBlank().isEmpty();
            fail("Debería haberse lanzado una excepción.");
@@ -90,44 +90,44 @@ public class UsuarioTest {
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetApellidoUsuario_ConApellidoSoloEspaciosBlancos() {   
+       public void setApellidoUsuario_ConApellidoSoloEspaciosBlancos() {   
            usuario.setApellido("   ");
            assertThat(usuario.getApellido()).containsOnlyWhitespaces();
            fail("Debería haberse lanzado una excepción.");
        }
         @Test(expected = IllegalArgumentException.class)
-       public void SetApellidoUsuario_ConApellidoNull() {   
+       public void setApellidoUsuario_ConApellidoNull() {   
            usuario.setApellido(null);
            assertThat(usuario.getApellido()).isNull();
            fail("Debería haberse lanzado una excepción.");
        }
        
         @Test
-       public void SetEmailUsuario_ConEmailValido() {
+       public void setEmailUsuario_ConEmailValido() {
            usuario.setEmail("elpoeta@gmail.com");
            assertThat(usuario.getEmail()).isNotBlank().isNotEmpty().isNotNull();
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetEmailUsuario_ConEmailInValido() {
+       public void setEmailUsuario_ConEmailInValido() {
            usuario.setEmail("elopetagmail.com");
            assertThat(usuario.getEmail()).doesNotContainPattern(Validar.VALID_EMAIL_ADDRESS_REGEX);
        }
        
         @Test(expected = IllegalArgumentException.class)
-       public void SetEmailUsuario_ConEmailNull() {
+       public void setEmailUsuario_ConEmailNull() {
            usuario.setEmail(null);
            assertThat(usuario.getEmail()).isNull();
        }
        
         @Test
-       public void SetPasswordUsuario_ConPasswordValido() {
+       public void setPasswordUsuario_ConPasswordValido() {
            usuario.setPassword("P@$$w0rd");
            assertThat(usuario.getPassword()).isNotBlank().isNotEmpty().isNotNull();
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetPasswordUsuario_ConPasswordVacio() {
+       public void setPasswordUsuario_ConPasswordVacio() {
            usuario.setPassword("");
            assertThat(usuario.getPassword()).isBlank().isEmpty();
            fail("Debería haberse lanzado una excepción.");
@@ -135,13 +135,13 @@ public class UsuarioTest {
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetPasswordUsuario_ConPasswordSoloEspaciosBlancos() {   
+       public void setPasswordUsuario_ConPasswordSoloEspaciosBlancos() {   
            usuario.setPassword("   ");
            assertThat(usuario.getPassword()).containsOnlyWhitespaces();
            fail("Debería haberse lanzado una excepción.");
        }
         @Test(expected = IllegalArgumentException.class)
-       public void SetPasswordUsuario_ConPasswordNull() {   
+       public void setPasswordUsuario_ConPasswordNull() {   
            usuario.setNombre(null);
            assertThat(usuario.getPassword()).isNull();
            fail("Debería haberse lanzado una excepción.");

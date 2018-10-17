@@ -30,14 +30,14 @@ public class SubcategoriaTest {
       
 
        @Test
-       public void SetIdSubcategoria_ConIdValido() {
+       public void setIdSubcategoria_ConIdValido() {
            subCategoria.setId(1);
            assertThat(subCategoria.getId()).isNotNull().isEqualTo(1);
          
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetIdSubcategoria_ConIdNoValido() {
+       public void setIdSubcategoria_ConIdNoValido() {
           
            subCategoria.setId(null);
            assertThat(subCategoria.getId()).isNull();
@@ -46,26 +46,26 @@ public class SubcategoriaTest {
        
        
        @Test
-       public void SetIdCategoria_ConIdValido() {
+       public void setIdCategoria_ConIdValido() {
           
            subCategoria.setIdCategoria(1);
            assertThat(subCategoria.getIdCategoria()).isNotNull().isEqualTo(1);
          
        }
        @Test(expected = IllegalArgumentException.class)
-       public void SetIdCategoria_ConIdNoValido() {
+       public void setIdCategoria_ConIdNoValido() {
            subCategoria.setIdCategoria(null);
            assertThat(subCategoria.getId()).isNull();
          
        }
        @Test
-       public void SetNombreSucategoria_ConNombreValido() {
+       public void setNombreSucategoria_ConNombreValido() {
            subCategoria.setNombre("Tinto");
            assertThat(subCategoria.getNombre()).isNotBlank().isNotEmpty().isNotNull();
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetNombreSubcategoria_ConNombreVacio() {
+       public void setNombreSubcategoria_ConNombreVacio() {
            subCategoria.setNombre("");
            assertThat(subCategoria.getNombre()).isBlank().isEmpty();
            fail("Debería haberse lanzado una excepción.");
@@ -73,13 +73,13 @@ public class SubcategoriaTest {
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetNombreSubcategoria_ConNombreSoloEspaciosBlancos() {   
+       public void setNombreSubcategoria_ConNombreSoloEspaciosBlancos() {   
            subCategoria.setNombre("   ");
            assertThat(subCategoria.getNombre()).containsOnlyWhitespaces();
            fail("Debería haberse lanzado una excepción.");
        }
         @Test(expected = IllegalArgumentException.class)
-       public void SetNombreSubcategoria_ConNombreNull() {   
+       public void setNombreSubcategoria_ConNombreNull() {   
            subCategoria.setNombre(null);
            assertThat(subCategoria.getNombre()).isNull();
            fail("Debería haberse lanzado una excepción.");

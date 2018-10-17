@@ -44,7 +44,7 @@ class MiCuenta{
 
                 <div id="tab-miscompras" class="tabcontent">
                      <h2>Mis Compras</h2>
-                     <p>Histarial de compras.</p> 
+                     <p>Historial de compras.</p> 
                 </div>
 
                 <div id="tab-sugerencias" class="tabcontent">
@@ -54,7 +54,7 @@ class MiCuenta{
 
                 <div id="tab-novedades" class="tabcontent">
                     <h2>Novedades</h2>
-                    <p>Novedades, promos, informacion.</p>
+                    <p>Novedades, promos, notificaciones, informacion.</p>
                     </div>
 
             <button class="tablink" onclick="MiCuenta.abrirPanelCuenta('tab-micuenta', this, '#933157')" id="defaultOpen">Mi Cuenta</button>

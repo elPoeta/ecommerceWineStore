@@ -31,7 +31,9 @@ public class ProductoDao {
     private final static String SQL_BUSCAR_PRODUCTOS_POR_NOMBRE_LIKE = "SELECT producto.id, producto.nombre, producto.precio, producto.sub_categoria_id,"
                                                                   + "producto.imagen, producto.is_disponible, producto.stock "
                                                                   +"FROM producto WHERE LOWER(nombre) LIKE LOWER(?)";
+  
     
+             
     private ProductoDao() throws ClassNotFoundException,
     IOException, SQLException {
 }

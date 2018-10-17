@@ -31,27 +31,27 @@ public class CategoriaTest {
    
 
        @Test
-       public void SetIdCategoria_ConIdValido() {
+       public void setIdCategoria_ConIdValido() {
            categoria.setId(1);
            assertThat(categoria.getId()).isEqualTo(1).isNotNull();
          
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetIdCategoria_ConIdNoValido() {
+       public void setIdCategoria_ConIdNoValido() {
           
            categoria.setId(null);
            assertThat(categoria.getId()).isNull();
            fail("Debería haberse lanzado una excepción.");
        }
        @Test
-       public void SetNombreCategoria_ConNombreValido() {
+       public void setNombreCategoria_ConNombreValido() {
            categoria.setNombre("Vino");
            assertThat(categoria.getNombre()).isNotBlank().isNotEmpty().isNotNull();
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetNombreCategoria_ConNombreVacio() {
+       public void setNombreCategoria_ConNombreVacio() {
            categoria.setNombre("");
            assertThat(categoria.getNombre()).isBlank().isEmpty();
            fail("Debería haberse lanzado una excepción.");
@@ -59,20 +59,20 @@ public class CategoriaTest {
        }
        
        @Test(expected = IllegalArgumentException.class)
-       public void SetNombreCategoria_ConNombreSoloEspaciosBlancos() {   
+       public void setNombreCategoria_ConNombreSoloEspaciosBlancos() {   
            categoria.setNombre("   ");
            assertThat(categoria.getNombre()).containsOnlyWhitespaces();
            fail("Debería haberse lanzado una excepción.");
        }
         @Test(expected = IllegalArgumentException.class)
-       public void SetNombreCategoria_ConNombreNull() {   
+       public void setNombreCategoria_ConNombreNull() {   
            categoria.setNombre(null);
            assertThat(categoria.getNombre()).isNull();
            fail("Debería haberse lanzado una excepción.");
        }
        
        @Test
-       public void SetSubCategorias_ConListaValida() {   
+       public void setSubCategorias_ConListaValida() {   
            List<SubCategoria> lista = new ArrayList();
            SubCategoria s = new SubCategoria();
            s.setNombre("tinto");
@@ -83,7 +83,7 @@ public class CategoriaTest {
        }
        
        @Test
-       public void SetSubCategorias_ConListaVacia() {   
+       public void setSubCategorias_ConListaVacia() {   
            List<SubCategoria> lista = new ArrayList();
            
            categoria.setSubCategorias(lista);
