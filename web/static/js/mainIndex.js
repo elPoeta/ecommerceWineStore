@@ -1,4 +1,6 @@
-let pos = 0;
+class Main{
+static iniciar(){
+    let pos = 0;
 let turno = 0;
 let txtBanner = ["Poesía embotellada", "Tienda de vinos"];
 let tipeo = document.querySelector('#tipeo-contenedor');
@@ -51,6 +53,29 @@ login.addEventListener('click', e => {
         }
   
 });
+Main.redirectPage();
+}
+static redirectPage(){
+         
+        if (sessionStorage.getItem("history") === null || JSON.parse(sessionStorage.getItem("history")).url === 'index'){
+             const urlHistory={"url":"index"};
+             sessionStorage.setItem("history", JSON.stringify(urlHistory));
+             
+        }
+        else
+            if(JSON.parse(sessionStorage.getItem("history")).url === 'FinalizarCompra'){
+               Checkout.finalizarCompra();
+               const urlHistory={"url":"index"};
+               sessionStorage.setItem("history", JSON.stringify(urlHistory));
+            }
+         
+   
+ }
+ 
+
+}
+  
+Main.iniciar();
 
 let loadingsvg = document.querySelector("#loading");  
 function loading(on) {
@@ -60,4 +85,4 @@ function loading(on) {
   } else {
       loadingsvg.style.display = "none";
   }
-}
+  }

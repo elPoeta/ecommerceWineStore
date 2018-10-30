@@ -60,7 +60,9 @@ class Checkout{
              if(compra !== null && compra !=='error'){
                 Checkout.verCompra();
              }else{
-                 window.location.replace("login.html");
+                  const urlHistory={"url":"FinalizarCompra"};
+                   sessionStorage.setItem("history", JSON.stringify(urlHistory));
+                   window.location.replace("login.html");
         }
         }catch(error){
               console.log(error);
