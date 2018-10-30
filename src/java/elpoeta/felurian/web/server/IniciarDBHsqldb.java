@@ -1,7 +1,6 @@
 
 package elpoeta.felurian.web.server;
 
-import elpoeta.felurian.conexion.Conexion;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
