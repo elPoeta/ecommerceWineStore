@@ -6,7 +6,7 @@ class Producto{
     }
     
     static async buscarPorCategoria(id){
-         const param = {"categoria":"" + id};
+         const param = {"categoria": "" + id};
        try{
             loading(true);
         let productos = await Producto.consultar(param);

@@ -19,18 +19,18 @@ import java.util.List;
 public class ProductoDao {
        
    private static ProductoDao INSTANCE = null;
-    private final static String SQL_PRODUCTOS_SELECT = "SELECT * FROM producto;";
-    private final static String SQL_PRODUCTO_SELECT = "SELECT * FROM producto WHERE id = ?;";
+    private final static String SQL_PRODUCTOS_SELECT = "SELECT * FROM producto WHERE producto.stock > 0;";
+    private final static String SQL_PRODUCTO_SELECT = "SELECT * FROM producto WHERE id = ? AND producto.stock > 0;";
     private final static String SQL_PRODUCTOS_SELECT_BY_CATEGORIA = "SELECT producto.id, producto.nombre, producto.precio, producto.sub_categoria_id,"
                                                                   + "producto.imagen, producto.is_disponible, producto.stock "
                                                                   + "FROM producto INNER JOIN sub_categoria on sub_categoria.id = producto.sub_categoria_id "
                                                                   + "INNER JOIN categoria ON sub_categoria.categoria_id = categoria.id " 
-                                                                  +"WHERE categoria.id = ?;";    
+                                                                  +"WHERE categoria.id = ? AND producto.stock > 0;";    
     private final static String SQL_PRODUCTOS_SELECT_BY_SUBCATEGORIA = "SELECT * from producto WHERE producto.sub_categoria_id = ?;";   
     private final static String SQL_SUBCATEGORIA_SELECT = "SELECT * FROM sub_categoria WHERE id = ?;";
     private final static String SQL_BUSCAR_PRODUCTOS_POR_NOMBRE_LIKE = "SELECT producto.id, producto.nombre, producto.precio, producto.sub_categoria_id,"
                                                                   + "producto.imagen, producto.is_disponible, producto.stock "
-                                                                  +"FROM producto WHERE LOWER(nombre) LIKE LOWER(?)";
+                                                                  +"FROM producto WHERE LOWER(nombre) LIKE LOWER(?) AND producto.stock > 0";
   
     
              

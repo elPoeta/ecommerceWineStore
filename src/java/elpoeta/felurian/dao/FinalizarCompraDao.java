@@ -22,7 +22,7 @@ public class FinalizarCompraDao {
     //private final String SQL_INSERTAR_CARRITO = "INSERT INTO carrito (fecha_creacion, total, cantidad_items, usuario_id)values(?,?,?,?);";
     private final String SQL_INSERTAR_CARRITO = "INSERT INTO carrito (fecha_creacion, usuario_id)values(?,?);";
     private final String SQL_INSERTAR_CARRITO_ITEM = "INSERT INTO carrito_item (cantidad, sub_total, carrito_id, producto_id )values(?,?,?,?);";
-    
+    private final String SQL_UPDATE_PRODUCTO_STOCK = "UPDATE producto SET producto.stock = producto.stock - ? WHERE producto.id = ?";
       private FinalizarCompraDao() throws ClassNotFoundException,
     IOException, SQLException {
 }
@@ -84,6 +84,18 @@ LocalDate parsedDate = LocalDate.parse(formattedDate, formatter);
                        ptsmt.setInt(4,carrito.getItems().get(key).getProducto().getId());
                        ptsmt.execute();
                      }   
+                     
+                     ptsmt = conexion.prepareStatement(SQL_UPDATE_PRODUCTO_STOCK);
+                     it =  carrito.getItems().keySet().iterator();
+                     while(it.hasNext()){
+                         Integer key = (Integer) it.next();
+                       
+                       ptsmt.setInt(1,carrito.getItems().get(key).getCantidad());
+                       ptsmt.setInt(2,carrito.getItems().get(key).getProducto().getId());
+                     
+                       ptsmt.execute();
+                     }   
+                     
                        conexion.commit();
                        
               } catch (Exception e) {

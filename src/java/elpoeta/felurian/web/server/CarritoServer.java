@@ -55,17 +55,18 @@ public class CarritoServer extends HttpServlet {
                 throw new IllegalArgumentException("La cantidad debe ser mayor que cero");
             }
             Producto productoDB = ProductoDao.getInstance().buscarPorId(productoComprado.getProducto().getId());
-            productoComprado.setProducto(productoDB);
-           
-        carrito = (Carrito) request.getSession().getAttribute("carro");
-        carrito.agregar( productoComprado );
-        carrito.getTotal();
-        carrito.getCantidadItems();
+             carrito = (Carrito) request.getSession().getAttribute("carro");
+            if(productoComprado.getCantidad() <= productoDB.getStock())
+        { 
+         productoComprado.setProducto(productoDB); 
+         carrito.agregar( productoComprado );
+         carrito.getTotal();
+         carrito.getCantidadItems();
+        }
+         Usuario usuario = (Usuario) request.getSession().getAttribute("user");
+         carrito.setUsuario(usuario);
+         response.getWriter().print(GsonUtil.CONVERTIR.toJson(carrito));
         
-        Usuario usuario = (Usuario) request.getSession().getAttribute("user");
-        carrito.setUsuario(usuario);
-        
-        response.getWriter().print(GsonUtil.CONVERTIR.toJson(carrito));
         
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CarritoServer.class.getName()).log(Level.SEVERE, null, ex);
