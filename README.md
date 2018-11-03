@@ -1,2 +1,4 @@
 # ecommerceWineStore
-e-commerce tienda de vinos con medio de pago paypal
+e-commerce wine's store with paypal
+
+run jetty demo https://github.com/elPoeta/demoEcommerceJetty  
